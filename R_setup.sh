@@ -25,24 +25,25 @@ while getopts ":hil" OPTION; do
          l)
 			if [ -z ${R_LIBS_USER+x} ]
             	then R_LIBS_USER=echo "${@: -1}";
-        		else echo "R-library is already set, do you wish to create a new libary in echo "${@: -1}"?\\n";
+        		else echo "R-library is already set to $R_LIBS_USER, do you wish to create a new libary in "${@: -1}"?";
 					read -p " [y/N] " ans;
 					case "$ans" in
 						[yY][eE][sS]|[yY]) 
-					 		R_LIBS_USER=echo "${@: -1}";
+					 		R_LIBS_USER=`${@: -1}`;
+							mkdir -p ${@: -1};
+					 		echo "export R_LIBS_USER=$R_LIBS_USER" >> ~/.bashrc;
 							;;
 						*)
 							:
 					 		;;
 					esac
 	        fi
-	        echo "export R_LIBS_USER=$R_LIBS_USER" >> ~/.bashrc
             ;;
          :)
 			echo "Option -$OPTARG requires an argument." >&2
       		exit 1
 			;;
-         ?) echo "Invalid option: -$OPTARG\\nUse \"sh $0 -h\" to see usage and list of legal arguments." >&2
+         ?) echo "Invalid option: -$OPTARG Use \"sh $0 -h\" to see usage and list of legal arguments." >&2
             exit 1
             ;;
      esac
