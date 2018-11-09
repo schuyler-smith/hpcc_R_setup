@@ -1,12 +1,12 @@
 #!/bin/bash
-
+SCRIPTPATH=`dirname $0`
 usage(){
 cat << EOF
 
 USAGE: sh R_setup.sh -i -l [R-library_directory] 
 
 OPTIONS:
-	-i 	install packages, only needed if specifying a new library (this will take a while)
+	-i 	install preset packages, only needed if specifying a new library (this will take a while)
 	-l  specify a directory for your R-library, if this has not been 
    		set previously and you do not specify with this flag then the 
    		default will be /mnt/research/germs/R/library.
@@ -48,6 +48,7 @@ while getopts ":hil" OPTION; do
      esac
 done
 
+
 if [ -z ${R_LIBS_USER+x} ]
 	then echo "WARNING: R-library is not set and -l argument is missing. R-library will be automatically set to /mnt/research/germs/R/library ?";
 		read -p " [y/N] " ans;
@@ -78,5 +79,5 @@ fi
 
 if [ -z $INSTALL ] ;
 	then : ;
-	else Rscript --vanilla /mnt/research/germs/Schuyler/scripts/library_setup.R $R_LIBS_USER ;
+	else Rscript --vanilla $SCRIPTPATH/library_setup.R $R_LIBS_USER ;
 fi
