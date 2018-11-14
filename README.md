@@ -11,38 +11,40 @@ If you run the `R_setup.sh` script, it will set your R library directory and als
 To run the program with default settings use:
 
 ```
-sh /mnt/research/germs/schuyler/scripts/R_setup.sh
+sh /mnt/research/germs/schuyler/scripts/R_setup/R_setup.sh
 ```
 If you want to set a new directory for your library, then use the `-l` flag and set the directory:
 
 ```
-sh /mnt/research/germs/schuyler/scripts/R_setup.sh -l ~/R/library
+sh /mnt/research/germs/schuyler/scripts/R_setup/R_setup.sh -l ~/R/library
 ```
 
 and if you want R to install a predefined set of useful packages use the -i flag:
 
 ```
-sh /mnt/research/germs/schuyler/scripts/R_setup.sh -l -i ~/R/library 
+sh /mnt/research/germs/schuyler/scripts/R_setup/R_setup.sh -l -i ~/R/library 
 ```
 
 ## Install New Packages
 
 I have already installed a lot of packages in the defauly GERMS repository. If you need to install new packages I wrote a program to (hopefully) make installing new packages easy! And it can take any number of packages from the same source.
 
+I added an alias in your bashrc through the R_setup script so that you can run the comman `rinstall` that will install packages.
+
 ```
-sh /mnt/research/germs/schuyler/scripts/install_R_packages.sh [package_name] [package_name ...]
+rinstall [package_name] [package_name ...]
 ```
 
 If you want to install a package from the BioConductor server then use the `-b` flag
 
 
 ```
-sh /mnt/research/germs/schuyler/scripts/install_R_packages.sh -b [package_name] [package_name ...]
+rinstall -b [package_name] [package_name ...]
 ```
 
 And for github packages use `-g`
 
 
 ```
-sh /mnt/research/germs/schuyler/scripts/install_R_packages.sh -g [github_user/package_name] [github_user/package_name] ...
+rinstall -g [github_user/package_name] [github_user/package_name] ...
 ```
