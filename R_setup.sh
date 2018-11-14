@@ -72,14 +72,14 @@ if grep -Fxq "module load R-Core" ~/.bashrc
     	echo "module load R-Core" >> ~/.bashrc
 fi
 
-if grep -Fxq "alias rinstall" ~/.bashrc
+if grep -Fxq "alias rinstall='sh $SCRIPTPATH/install_R_packages.sh" ~/.bashrc
 	then
     	:
 	else
     	echo "alias rinstall='sh $SCRIPTPATH/install_R_packages.sh'" >> ~/.bashrc
 fi
 
-if grep -Fxq "alias r=" ~/.bashrc
+if grep -Fxq "alias r='R'" ~/.bashrc
 	then
     	:
 	else
