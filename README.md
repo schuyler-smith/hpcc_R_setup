@@ -7,23 +7,25 @@ Alternatively there is an option to use a different directory for your library i
 
 ## Setup R
 If you run the `R_setup.sh` script, it will set your R library directory and also set your HPCC to automatically load the R-Core module every time you log into the developmental environments. I don't see this causing any issues at the moment, but if it does, I will update to use a flag to do this in the future.
-<br>
+
 To run the program with default settings use:
 
 ```
-sh /mnt/research/germs/R/R_setup/R_setup.sh
+sh /mnt/research/germs/R/R_setup/R_setup.sh; source ~/.bashrc
 ```
 If you want to set a new directory for your library, then use the `-l` flag and set the directory:
 
 ```
-sh /mnt/research/germs/R/R_setup/R_setup.sh -l ~/R/library
+sh /mnt/research/germs/R/R_setup/R_setup.sh -l ~/R/library; source ~/.bashrc
 ```
 
 and if you want R to install a predefined set of useful packages use the -i flag:
 
 ```
-sh /mnt/research/germs/R/R_setup/R_setup.sh -l -i ~/R/library 
+sh /mnt/research/germs/R/R_setup/R_setup.sh -l -i ~/R/library; source ~/.bashrc
 ```
+
+*NOTE* The first time you run this you need to run `source ~/.bashrc` for all the changes to take effect.
 
 ## Install New Packages
 
