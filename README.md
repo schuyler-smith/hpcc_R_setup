@@ -11,18 +11,18 @@ If you run the `R_setup.sh` script, it will set your R library directory and als
 To run the program with default settings use:
 
 ```
-sh /mnt/research/germs/schuyler/scripts/R_setup/R_setup.sh
+sh /mnt/research/germs/R/R_setup/R_setup.sh
 ```
 If you want to set a new directory for your library, then use the `-l` flag and set the directory:
 
 ```
-sh /mnt/research/germs/schuyler/scripts/R_setup/R_setup.sh -l ~/R/library
+sh /mnt/research/germs/R/R_setup/R_setup.sh -l ~/R/library
 ```
 
 and if you want R to install a predefined set of useful packages use the -i flag:
 
 ```
-sh /mnt/research/germs/schuyler/scripts/R_setup/R_setup.sh -l -i ~/R/library 
+sh /mnt/research/germs/R/R_setup/R_setup.sh -l -i ~/R/library 
 ```
 
 ## Install New Packages
