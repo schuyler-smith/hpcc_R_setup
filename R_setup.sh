@@ -65,21 +65,30 @@ if [ -z ${R_LIBS_USER+x} ]
 		esac
 fi
 
-if grep -Fxq "module load R-Core" ~/.bashrc
+if grep -Fq "module load R-Core" ~/.bashrc
 	then
     	:
 	else
-    	echo "module load R-Core" >> ~/.bashrc
+		echo "Do you want to set the R module to load on login?";
+		read -p " [y/N] " ans;
+		case "$ans" in
+			[yY][eE][sS]|[yY]) 
+		        echo "module load R-Core" >> ~/.bashrc
+				;;
+			*)
+				:
+		 		;;
+		esac
 fi
 
-if grep -Fxq "alias rinstall='sh $SCRIPTPATH/install_R_packages.sh" ~/.bashrc
+if grep -Fq "alias rinstall='sh $SCRIPTPATH/install_R_packages.sh" ~/.bashrc
 	then
     	:
 	else
     	echo "alias rinstall='sh $SCRIPTPATH/install_R_packages.sh'" >> ~/.bashrc
 fi
 
-if grep -Fxq "alias r='R'" ~/.bashrc
+if grep -Fq "alias r='R'" ~/.bashrc
 	then
     	:
 	else
