@@ -34,14 +34,14 @@ I have already installed a lot of packages in the defauly GERMS repository. If y
 I added an alias in your bashrc through the R_setup script so that you can run the comman `rinstall` that will install packages.
 
 ```
-rinstall [package_name] [package_name ...]
+rinstall [package_name] [package_name] ...
 ```
 
 If you want to install a package from the BioConductor server then use the `-b` flag
 
 
 ```
-rinstall -b [package_name] [package_name ...]
+rinstall -b [package_name] [package_name] ...
 ```
 
 And for github packages use `-g`
