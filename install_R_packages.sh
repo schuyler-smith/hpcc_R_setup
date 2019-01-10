@@ -3,7 +3,7 @@ SCRIPTPATH=`dirname $0`
 usage(){
 cat << EOF
 
-USAGE: sh install_R_packages.sh -b/g [package_name] ... 
+USAGE: sh install_R_packages.sh -b/g/u [package_name] ... 
 
 REQUIRED:
 		must have a least 1 package name given to run the script.
@@ -11,10 +11,11 @@ REQUIRED:
 OPTIONS:
 	-b 	specify the package(s) is hosted on the bioconductor server and not Cran.
 	-g  specify the package(s) is hosted on github and not Cran.
+    -u  updates all CRAN packages in specified library
 
 EOF
 }
-while getopts ":hbg" OPTION; do
+while getopts ":hbgu" OPTION; do
      case $OPTION in
          h)
             usage
@@ -26,6 +27,9 @@ while getopts ":hbg" OPTION; do
          g)
 			GIT=github_packages
             ;;
+         u)
+            UPDATE=update_packages
+            ;;            
          :)
 			echo "Option -$OPTARG requires an argument." >&2
       		exit 1
@@ -43,4 +47,4 @@ if [ -z ${R_LIBS_USER+x} ]
         exit 1
 fi
 module load R-Core
-Rscript $SCRIPTPATH/package_installer.R $R_LIBS_USER $BIO $GIT $@
+Rscript $SCRIPTPATH/package_installer.R $R_LIBS_USER $BIO $GIT $UPDATE $@
