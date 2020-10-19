@@ -73,7 +73,7 @@ if grep -Fq "module load R-Core" ~/.bashrc
 		read -p " [y/N] " ans;
 		case "$ans" in
 			[yY][eE][sS]|[yY]) 
-		        echo "module load R-Core" >> ~/.bashrc
+		        echo "module load R/4.0.0-X11-20180604" >> ~/.bashrc
 				;;
 			*)
 				:
